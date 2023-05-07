@@ -1,4 +1,4 @@
-Wiiisdom BI Testing Summary
+**Wiiisdom BI Testing Summary**
 
 This Tableau dashboard can be downloaded and used to connect to a PostgreSQL database capturing testing data from Wiiisdom Ops for Tableau!
 
