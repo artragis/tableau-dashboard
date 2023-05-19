@@ -2318,17 +2318,6 @@
               <bucket>&quot;ed9976e2-1c30-4bb5-89e6-6608afe0a60b&quot;</bucket>
             </map>
           </encoding>
-          <encoding attr='color' field='[none:test_status:nk]' type='palette'>
-            <map to='#2b7c40'>
-              <bucket>&quot;success&quot;</bucket>
-            </map>
-            <map to='#4a4a4a'>
-              <bucket>&quot;partial-success&quot;</bucket>
-            </map>
-            <map to='#bab0ac'>
-              <bucket>&quot;failed&quot;</bucket>
-            </map>
-          </encoding>
           <encoding attr='color' field='[none:task_status (regression_task_summary):nk]' type='palette'>
             <map to='#2b7c40'>
               <bucket>&quot;success&quot;</bucket>
@@ -2349,6 +2338,17 @@
             </map>
             <map to='#bab0ac'>
               <bucket>%null%</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;failed&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:test_status:nk]' type='palette'>
+            <map to='#2b7c40'>
+              <bucket>&quot;success&quot;</bucket>
+            </map>
+            <map to='#4a4a4a'>
+              <bucket>&quot;partial-success&quot;</bucket>
             </map>
             <map to='#bab0ac'>
               <bucket>&quot;failed&quot;</bucket>
@@ -2479,64 +2479,64 @@
   <actions>
     <action caption='Daily Tests --&gt; Functional Tasks &amp; Views' name='[Action1_01CF50531F014D38B5AE3DF6988BF036]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='Dashboard 1' type='sheet' worksheet='TestTypebyDay' />
+      <source dashboard='BITestingSummary' type='sheet' worksheet='TestTypebyDay' />
       <command command='tsc:tsl-filter'>
         <param name='exclude' value='FunctionalDonut,FAILEDTestPerDay,PASSSecondsTask,FUNCTIONALSecondsPerTest,FAILSecondsTask,FUNCTIONALTOTALViewsTested,PARTIALSecondsTask ,PARTIALTestPerDay,SUCCESSTestPerDay,PerformanceDonut,PERFORMANCESecondsPerTest,RegressionDonut,UNIQUETasks,REGRESSIONSecondsPerTest,REGRESSIONTOTALViewsTested,TestDonut,TestTypebyDay,TOTALTasks,TotalTestFailures,TOTALTestPerDay' />
         <param name='special-fields' value='all' />
-        <param name='target' value='Dashboard 1' />
+        <param name='target' value='BITestingSummary' />
       </command>
     </action>
     <action caption='Open Dashboard URL' name='[Action2_9502CF01CC8B437C91C4A5B3D613CCC1]'>
-      <source dashboard='Dashboard 1' type='sheet' worksheet='RegresstionByView-Status' />
+      <source dashboard='BITestingSummary' type='sheet' worksheet='RegresstionByView-Status' />
       <link caption='' expression='&lt;ATTR([view_url (regression_view_details)])&gt;' />
     </action>
     <action caption='Open Dashboard URL' name='[Action3_4139D489E7874EB6A37645CA9B217F45]'>
-      <source dashboard='Dashboard 1' type='sheet' worksheet='FunctionalTasksByView-Status' />
+      <source dashboard='BITestingSummary' type='sheet' worksheet='FunctionalTasksByView-Status' />
       <link caption='' expression='&lt;ATTR([view_url])&gt;' />
     </action>
     <action caption='FunctionalTask-&gt;FunctionalView' name='[Action4_B201EB03FE2B4708A9EF28C9ED2E2D8E]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='Dashboard 1' type='sheet' worksheet='FunctionalTasksByStatus' />
+      <source dashboard='BITestingSummary' type='sheet' worksheet='FunctionalTasksByStatus' />
       <command command='tsc:tsl-filter'>
         <param name='exclude' value='FunctionalDonut,FAILEDTestPerDay,FunctionalTasksByStatus,FUNCTIONALSecondsPerTest,TestDurationPareto,FAILSecondsTask,FUNCTIONALTOTALViewsTested,PARTIALSecondsTask ,PARTIALTestPerDay,PASSSecondsTask,SUCCESSTestPerDay,PerformanceDonut,PERFORMANCESecondsPerTest,RegressionDonut,REGRESSIONSecondsPerTest,REGRESSIONTOTALViewsTested,RegresstionByView-Status,TestDonut,TOTALTasks,TotalTestFailures,TOTALTestPerDay' />
         <param name='special-fields' value='all' />
-        <param name='target' value='Dashboard 1' />
+        <param name='target' value='BITestingSummary' />
       </command>
     </action>
     <action caption='FunctionalView-&gt;FunctionalTask+Duration' name='[Action5_573CFA0777EC4CD0AC56DE8F899D58F0]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='Dashboard 1' type='sheet' worksheet='FunctionalTasksByView-Status' />
+      <source dashboard='BITestingSummary' type='sheet' worksheet='FunctionalTasksByView-Status' />
       <command command='tsc:tsl-filter'>
         <param name='exclude' value='FunctionalTasksByView-Status,FunctionalDonut,FAILEDTestPerDay,FUNCTIONALSecondsPerTest,TestDurationPareto,FAILSecondsTask,FUNCTIONALTOTALViewsTested,PARTIALSecondsTask ,PARTIALTestPerDay,PASSSecondsTask,SUCCESSTestPerDay,PerformanceDonut,PERFORMANCESecondsPerTest,RegressionDonut,UNIQUETasks,REGRESSIONSecondsPerTest,REGRESSIONTOTALViewsTested,RegresstionByView-Status,TestDonut,TOTALTasks,TotalTestFailures,TOTALTestPerDay' />
         <param name='special-fields' value='all' />
-        <param name='target' value='Dashboard 1' />
+        <param name='target' value='BITestingSummary' />
       </command>
     </action>
     <action caption='TestDuration--&gt;TaskDuration' name='[Action6_D846AC6113AF4F91824B43DAF5815F32]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='Dashboard 1' type='sheet' worksheet='TestDurationPareto' />
+      <source dashboard='BITestingSummary' type='sheet' worksheet='TestDurationPareto' />
       <command command='tsc:tsl-filter'>
         <param name='exclude' value='FunctionalTasksByView-Status,FunctionalDonut,FAILEDTestPerDay,FunctionalTasksByStatus,FUNCTIONALSecondsPerTest,TestDurationPareto,FAILSecondsTask,FUNCTIONALTOTALViewsTested,MostRecentTestFailures,PARTIALSecondsTask ,PARTIALTestPerDay,PASSSecondsTask,SUCCESSTestPerDay,PerformanceDonut,PERFORMANCESecondsPerTest,RegressionDonut,UNIQUETasks,REGRESSIONSecondsPerTest,REGRESSIONTOTALViewsTested,RegresstionByView-Status,TestDonut,TestTypebyDay,TOTALTasks,TotalTestFailures,TOTALTestPerDay' />
         <param name='special-fields' value='all' />
-        <param name='target' value='Dashboard 1' />
+        <param name='target' value='BITestingSummary' />
       </command>
     </action>
     <action caption='TaskDuration--&gt;All' name='[Action7_F6D10DDC65254D17B0821CF887C13C3B]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='Dashboard 1' type='sheet' worksheet='TaskDurationPareto' />
+      <source dashboard='BITestingSummary' type='sheet' worksheet='TaskDurationPareto' />
       <command command='tsc:tsl-filter'>
         <param name='exclude' value='FunctionalDonut,FAILEDTestPerDay,PASSSecondsTask,FUNCTIONALSecondsPerTest,TestDurationPareto,FAILSecondsTask,FUNCTIONALTOTALViewsTested,PARTIALSecondsTask ,PARTIALTestPerDay,SUCCESSTestPerDay,PerformanceDonut,PERFORMANCESecondsPerTest,RegressionDonut,UNIQUETasks,REGRESSIONSecondsPerTest,REGRESSIONTOTALViewsTested,RegresstionByView-Status,TaskDurationPareto,TestDonut,TOTALTasks,TotalTestFailures,TOTALTestPerDay' />
         <param name='special-fields' value='all' />
-        <param name='target' value='Dashboard 1' />
+        <param name='target' value='BITestingSummary' />
       </command>
     </action>
     <action caption='RegressionView-&gt;MostRecent' name='[Action8_1D714DDCEA634220A25FAEEF924B4758]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='Dashboard 1' type='sheet' worksheet='RegresstionByView-Status' />
+      <source dashboard='BITestingSummary' type='sheet' worksheet='RegresstionByView-Status' />
       <command command='tsc:tsl-filter'>
         <param name='exclude' value='FunctionalTasksByView-Status,FunctionalDonut,FAILEDTestPerDay,FunctionalTasksByStatus,FUNCTIONALSecondsPerTest,FAILSecondsTask,FUNCTIONALTOTALViewsTested,PARTIALSecondsTask ,PARTIALTestPerDay,PASSSecondsTask,SUCCESSTestPerDay,PerformanceDonut,PERFORMANCESecondsPerTest,RegressionDonut,UNIQUETasks,REGRESSIONSecondsPerTest,REGRESSIONTOTALViewsTested,RegresstionByView-Status,TaskDurationPareto,TestDonut,TOTALTasks,TotalTestFailures,TOTALTestPerDay' />
         <param name='special-fields' value='all' />
-        <param name='target' value='Dashboard 1' />
+        <param name='target' value='BITestingSummary' />
       </command>
     </action>
     <datasources>
@@ -6119,7 +6119,7 @@
     </worksheet>
   </worksheets>
   <dashboards>
-    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 1'>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='BITestingSummary'>
       <layout-options>
         <title>
           <formatted-text>
@@ -6530,8 +6530,8 @@
           </layout-options>
           <size maxheight='4150' minheight='4150' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='455' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98172' id='454' param='vert' type-v2='layout-flow' w='98666' x='667' y='914'>
+            <zone h='100000' id='461' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98172' id='460' param='vert' type-v2='layout-flow' w='98666' x='667' y='914'>
                 <zone fixed-size='107' h='13143' id='44' type-v2='title' w='98666' x='667' y='914'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -7883,7 +7883,7 @@
       </viewpoint>
       <simple-id uuid='{84EEB1EF-B8BD-48CE-8166-B32F7F8BC1FD}' />
     </window>
-    <window class='dashboard' maximized='true' name='Dashboard 1' tab-color='#17927d'>
+    <window class='dashboard' maximized='true' name='BITestingSummary' tab-color='#17927d'>
       <viewpoints>
         <viewpoint name='FAILEDTestPerDay'>
           <zoom type='entire-view' />
@@ -8218,7 +8218,7 @@
     </window>
   </windows>
   <thumbnails>
-    <thumbnail height='192' name='Dashboard 1' width='192'>
+    <thumbnail height='192' name='BITestingSummary' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
       AAAgAElEQVR4nOydZ3gdxdWA3729SffqqvdmS7Zc5N6NGwZsCBASCB1SSAhJCKSQnvCFQAoJ
       SUgCoYRiek1waAHjgnsvkmyr966r2/uW74fcriUXwLZkW+/z+LF2dnZ2du+cnTlnzpwRFEVR
